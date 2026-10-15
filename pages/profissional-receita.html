@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Receita digital | VidaPlus Hospital</title>
+    <link href="../css/style.css" rel="stylesheet">
+    <script defer src="../js/main.js"></script>
+    <script defer src="../js/usuarios.js"></script>
+    <script defer src="../js/profissional.js"></script>
+  </head>
+  <body data-perfil="Profissional">
+    <a class="pular-conteudo" href="#conteudo-principal">Pular para o conteúdo</a>
+    <div class="sistema">
+      <nav aria-label="Menu principal" class="menu">
+        <div class="menu-logo">
+          <img alt="Logo VidaPlus Hospital" src="../imagens/logo-vidaplus.png">
+          <div>
+            <strong>VidaPlus Hospital</strong>
+            <small>Profissional</small>
+          </div>
+        </div>
+        <a href="profissional-dashboard.html">Início</a>
+        <a href="profissional-agenda.html">Agenda</a>
+        <a href="profissional-pacientes.html">Pacientes</a>
+        <a href="profissional-prontuario.html">Prontuário</a>
+        <a class="ativo" href="profissional-receita.html">Receita</a>
+        <a href="profissional-teleconsulta.html">Teleconsulta</a>
+        <a href="#" onclick="sairDoSistema()">Sair</a>
+      </nav>
+      <main class="conteudo" id="conteudo-principal">
+        <div class="topo">
+          <div>
+            <h2>Receita digital</h2>
+          </div>
+          <div class="usuario-topo">
+            <small>Usuário logado</small>
+            <br>
+            <strong class="nome-usuario-logado">Usuário</strong>
+            <br>
+            <small class="detalhe-usuario-logado">
+            </small>
+          </div>
+        </div>
+        <div class="paciente-destaque">
+          Paciente selecionado:
+          <strong id="pacienteReceita">Nenhum paciente selecionado</strong>
+        </div>
+        <form class="card" id="formReceita" onsubmit="event.preventDefault(); emitirReceita();">
+          <div class="form-grid">
+            <div class="grupo">
+              <label for="medicamento">Medicamento</label>
+              <input class="campo" id="medicamento">
+            </div>
+            <div class="grupo">
+              <label for="dosagem">Dosagem</label>
+              <input class="campo" id="dosagem">
+            </div>
+            <div class="grupo">
+              <label for="frequencia">Frequência</label>
+              <input class="campo" id="frequencia">
+            </div>
+            <div class="grupo">
+              <label for="duracao">Duração</label>
+              <input class="campo" id="duracao">
+            </div>
+            <div class="grupo coluna-inteira">
+              <label for="orientacoes">Orientações</label>
+              <textarea class="campo" id="orientacoes"></textarea>
+            </div>
+          </div>
+          <button class="botao botao-azul" type="submit">Emitir receita</button>
+        </form>
+      </main>
+    </div>
+  </body>
+</html>

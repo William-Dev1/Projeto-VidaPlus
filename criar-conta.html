@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Criar conta | VidaPlus Hospital</title>
+    <link href="css/style.css" rel="stylesheet">
+    <script defer src="js/main.js"></script>
+    <script defer src="js/usuarios.js"></script>
+  </head>
+  <body class="login-body">
+    <main class="login-card">
+      <img alt="Logo VidaPlus Hospital" class="logo" src="imagens/logo-vidaplus.png">
+      <h1>Criar conta</h1>
+      <form id="formCadastro" onsubmit="event.preventDefault(); criarConta()">
+        <div class="grupo">
+          <label for="tipoCadastro">Tipo de conta</label>
+          <select class="campo" id="tipoCadastro" onchange="mostrarCamposProfissional()">
+            <option value="Paciente">Paciente</option>
+            <option value="Profissional">Profissional de Saúde</option>
+          </select>
+        </div>
+        <div class="grupo">
+          <label for="nomeCadastro">Nome completo</label>
+          <input autocomplete="name" class="campo" id="nomeCadastro" placeholder="Digite o nome completo" required>
+        </div>
+        <div class="grupo">
+          <label for="cpfCadastro">CPF</label>
+          <input autocomplete="off" class="campo" id="cpfCadastro" inputmode="numeric" maxlength="14" pattern="[0-9]{3}\.[0-9]{3}\.[0-9]{3}-[0-9]{2}" placeholder="000.000.000-00" required type="text">
+        </div>
+        <div id="camposPacienteCadastro">
+          <div class="grupo">
+            <label for="nascimentoCadastro">Data de nascimento</label>
+            <input autocomplete="bday" class="campo" id="nascimentoCadastro" inputmode="numeric" maxlength="10" placeholder="DD/MM/AAAA" required type="text">
+          </div>
+          <div class="grupo">
+            <label for="telefoneCadastro">Celular com DDD</label>
+            <input autocomplete="tel" class="campo" id="telefoneCadastro" inputmode="numeric" maxlength="15" placeholder="(47) 99999-9999" required type="tel">
+          </div>
+        </div>
+        <div id="camposProfissional" style="display:none">
+          <div class="grupo">
+            <label for="especialidadeCadastro">Especialidade</label>
+            <input class="campo" id="especialidadeCadastro" placeholder="Ex.: Pediatria">
+          </div>
+          <div class="grupo">
+            <label for="registroCadastro">Registro profissional</label>
+            <input class="campo" id="registroCadastro" placeholder="Ex.: CRM 55555">
+          </div>
+        </div>
+        <div class="grupo">
+          <label for="emailCadastro">E-mail</label>
+          <input autocomplete="email" class="campo" id="emailCadastro" required type="email">
+        </div>
+        <div class="grupo">
+          <label for="senhaCadastro">Senha</label>
+          <div class="campo-senha">
+            <input autocomplete="new-password" class="campo" id="senhaCadastro" minlength="6" required type="password">
+            <button aria-label="Mostrar senha" class="botao-senha" onclick="alternarVisibilidadeSenha('senhaCadastro', this)" title="Mostrar senha" type="button">
+              <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z">
+                </path>
+                <circle cx="12" cy="12" r="3">
+                </circle>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="grupo">
+          <label for="confirmarSenhaCadastro">Confirmar senha</label>
+          <div class="campo-senha">
+            <input autocomplete="new-password" class="campo" id="confirmarSenhaCadastro" minlength="6" required type="password">
+            <button aria-label="Mostrar senha" class="botao-senha" onclick="alternarVisibilidadeSenha('confirmarSenhaCadastro', this)" title="Mostrar senha" type="button">
+              <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z">
+                </path>
+                <circle cx="12" cy="12" r="3">
+                </circle>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="acoes">
+          <button class="botao botao-azul" type="submit">Salvar conta</button>
+          <a class="botao botao-branco" href="index.html">Voltar</a>
+        </div>
+      </form>
+    </main>
+  </body>
+</html>

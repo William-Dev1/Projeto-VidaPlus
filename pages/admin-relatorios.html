@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Relatórios | VidaPlus Hospital</title>
+    <link href="../css/style.css" rel="stylesheet">
+    <script defer src="../js/main.js"></script>
+    <script defer src="../js/usuarios.js"></script>
+    <script defer src="../js/admin.js"></script>
+    <script defer src="../js/hospital.js"></script>
+  </head>
+  <body class="pagina-relatorios" data-perfil="Administrador">
+    <a class="pular-conteudo" href="#conteudo-principal">Pular para o conteúdo</a>
+    <div class="sistema">
+      <nav aria-label="Menu principal" class="menu">
+        <div class="menu-logo">
+          <img alt="Logo VidaPlus Hospital" src="../imagens/logo-vidaplus.png">
+          <div>
+            <strong>VidaPlus Hospital</strong>
+            <small>Administrador</small>
+          </div>
+        </div>
+        <a href="admin-dashboard.html">Início</a>
+        <a href="admin-cadastros.html">Cadastros</a>
+        <a href="admin-leitos.html">Internações e leitos</a>
+        <a href="admin-suprimentos.html">Suprimentos</a>
+        <a href="admin-financeiro.html">Financeiro</a>
+        <a class="ativo" href="admin-relatorios.html">Relatórios</a>
+        <a href="admin-auditoria.html">Auditoria</a>
+        <a href="#" onclick="sairDoSistema(); return false;">Sair</a>
+      </nav>
+      <main class="conteudo" id="conteudo-principal">
+        <div class="topo">
+          <div>
+            <h2>Relatórios</h2>
+          </div>
+          <div class="usuario-topo">
+            <small>Usuário logado</small>
+            <br>
+            <strong class="nome-usuario-logado">Usuário</strong>
+            <br>
+            <small class="detalhe-usuario-logado">
+            </small>
+          </div>
+        </div>
+        <div class="grid-4">
+          <div class="card amarelo">
+            <h3>Pendentes</h3>
+            <div class="numero" id="relPendentes">
+              0
+            </div>
+          </div>
+          <div class="card verde">
+            <h3>Confirmadas</h3>
+            <div class="numero" id="relConfirmadas">
+              0
+            </div>
+          </div>
+          <div class="card">
+            <h3>Concluídas</h3>
+            <div class="numero" id="relConcluidas">
+              0
+            </div>
+          </div>
+          <div class="card">
+            <h3>Recusadas / Canceladas</h3>
+            <div>
+              <span id="relRecusadas">0</span>
+              recusadas •
+              <span id="relCanceladas">0</span>
+              canceladas
+            </div>
+          </div>
+        </div>
+        <section aria-labelledby="tituloRelFinanceiro" class="secao">
+          <div class="cabecalho-secao">
+            <h3 id="tituloRelFinanceiro">Resumo financeiro</h3>
+            <a class="botao botao-branco botao-pequeno" href="admin-financeiro.html">Ver lançamentos</a>
+          </div>
+          <div class="grid-3">
+            <div class="card verde">
+              <h3>Total de receitas</h3>
+              <div class="numero valor-monetario" id="relFinanceiroReceitas">
+                R$ 0,00
+              </div>
+            </div>
+            <div class="card amarelo">
+              <h3>Total de despesas</h3>
+              <div class="numero valor-monetario" id="relFinanceiroDespesas">
+                R$ 0,00
+              </div>
+            </div>
+            <div class="card">
+              <h3>Saldo acumulado</h3>
+              <div class="numero valor-monetario" id="relFinanceiroSaldo">
+                R$ 0,00
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Teleconsulta | VidaPlus Hospital</title>
+    <link href="../css/style.css" rel="stylesheet">
+    <script defer src="../js/main.js"></script>
+    <script defer src="../js/usuarios.js"></script>
+    <script defer src="../js/profissional.js"></script>
+  </head>
+  <body data-perfil="Profissional">
+    <a class="pular-conteudo" href="#conteudo-principal">Pular para o conteúdo</a>
+    <div class="sistema">
+      <nav aria-label="Menu principal" class="menu">
+        <div class="menu-logo">
+          <img alt="Logo VidaPlus Hospital" src="../imagens/logo-vidaplus.png">
+          <div>
+            <strong>VidaPlus Hospital</strong>
+            <small>Profissional</small>
+          </div>
+        </div>
+        <a href="profissional-dashboard.html">Início</a>
+        <a href="profissional-agenda.html">Agenda</a>
+        <a href="profissional-pacientes.html">Pacientes</a>
+        <a href="profissional-prontuario.html">Prontuário</a>
+        <a href="profissional-receita.html">Receita</a>
+        <a class="ativo" href="profissional-teleconsulta.html">Teleconsulta</a>
+        <a href="#" onclick="sairDoSistema()">Sair</a>
+      </nav>
+      <main class="conteudo" id="conteudo-principal">
+        <div class="topo">
+          <div>
+            <h2>Teleconsulta</h2>
+          </div>
+          <div class="usuario-topo">
+            <small>Usuário logado</small>
+            <br>
+            <strong class="nome-usuario-logado">Usuário</strong>
+            <br>
+            <small class="detalhe-usuario-logado">
+            </small>
+          </div>
+        </div>
+        <div class="grid-3" id="listaTeleconsultasProfissional">
+        </div>
+        <div class="secao grid-2">
+          <div class="video-area" id="areaTeleconsultaProfissional">
+            <div>
+              <h2>Nenhuma teleconsulta selecionada</h2>
+            </div>
+          </div>
+          <div class="card" id="dadosTeleconsultaProfissional">
+            <p>Nenhum atendimento selecionado.</p>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

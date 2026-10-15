@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Auditoria | VidaPlus Hospital</title>
+    <link href="../css/style.css" rel="stylesheet">
+    <script defer src="../js/main.js"></script>
+    <script defer src="../js/usuarios.js"></script>
+    <script defer src="../js/admin.js"></script>
+  </head>
+  <body data-perfil="Administrador">
+    <a class="pular-conteudo" href="#conteudo-principal">Pular para o conteúdo</a>
+    <div class="sistema">
+      <nav aria-label="Menu principal" class="menu">
+        <div class="menu-logo">
+          <img alt="Logo VidaPlus Hospital" src="../imagens/logo-vidaplus.png">
+          <div>
+            <strong>VidaPlus Hospital</strong>
+            <small>Administrador</small>
+          </div>
+        </div>
+        <a href="admin-dashboard.html">Início</a>
+        <a href="admin-cadastros.html">Cadastros</a>
+        <a href="admin-leitos.html">Internações e leitos</a>
+        <a href="admin-suprimentos.html">Suprimentos</a>
+        <a href="admin-financeiro.html">Financeiro</a>
+        <a href="admin-relatorios.html">Relatórios</a>
+        <a class="ativo" href="admin-auditoria.html">Auditoria</a>
+        <a href="#" onclick="sairDoSistema(); return false;">Sair</a>
+      </nav>
+      <main class="conteudo" id="conteudo-principal">
+        <div class="topo">
+          <div>
+            <h2>Auditoria</h2>
+          </div>
+          <div class="usuario-topo">
+            <small>Usuário logado</small>
+            <br>
+            <strong class="nome-usuario-logado">Usuário</strong>
+            <br>
+            <small class="detalhe-usuario-logado">
+            </small>
+          </div>
+        </div>
+        <div class="card">
+          <div class="grupo">
+            <label for="buscaAuditoria">Buscar</label>
+            <input class="campo" id="buscaAuditoria" onkeyup="filtrarAuditoria()" placeholder="Usuário, perfil ou ação">
+          </div>
+        </div>
+        <div class="secao tabela-container">
+          <table id="tabelaAuditoria">
+            <thead>
+              <tr>
+                <th>Data/hora</th>
+                <th>Usuário</th>
+                <th>Perfil</th>
+                <th>Ação</th>
+              </tr>
+            </thead>
+            <tbody id="corpoAuditoria">
+            </tbody>
+          </table>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

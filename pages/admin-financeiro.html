@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Financeiro | VidaPlus Hospital</title>
+    <link href="../css/style.css" rel="stylesheet">
+    <script defer src="../js/main.js"></script>
+    <script defer src="../js/usuarios.js"></script>
+    <script defer src="../js/admin.js"></script>
+    <script defer src="../js/hospital.js"></script>
+  </head>
+  <body data-perfil="Administrador">
+    <a class="pular-conteudo" href="#conteudo-principal">Pular para o conteúdo</a>
+    <div class="sistema">
+      <nav aria-label="Menu principal" class="menu">
+        <div class="menu-logo">
+          <img alt="Logo VidaPlus Hospital" src="../imagens/logo-vidaplus.png">
+          <div>
+            <strong>VidaPlus Hospital</strong>
+            <small>Administrador</small>
+          </div>
+        </div>
+        <a href="admin-dashboard.html">Início</a>
+        <a href="admin-cadastros.html">Cadastros</a>
+        <a href="admin-leitos.html">Internações e leitos</a>
+        <a href="admin-suprimentos.html">Suprimentos</a>
+        <a class="ativo" href="admin-financeiro.html">Financeiro</a>
+        <a href="admin-relatorios.html">Relatórios</a>
+        <a href="admin-auditoria.html">Auditoria</a>
+        <a href="#" onclick="sairDoSistema(); return false;">Sair</a>
+      </nav>
+      <main class="conteudo" id="conteudo-principal">
+        <div class="topo">
+          <div>
+            <h2>Financeiro</h2>
+          </div>
+          <div class="usuario-topo">
+            <small>Usuário logado</small>
+            <br>
+            <strong class="nome-usuario-logado">Usuário</strong>
+            <br>
+            <small class="detalhe-usuario-logado">
+            </small>
+          </div>
+        </div>
+        <div class="grid-3 resumo-operacional">
+          <div class="card verde">
+            <h3>Receitas no período</h3>
+            <div class="numero valor-monetario" id="totalReceitasFinanceiro">
+              R$ 0,00
+            </div>
+          </div>
+          <div class="card amarelo">
+            <h3>Despesas no período</h3>
+            <div class="numero valor-monetario" id="totalDespesasFinanceiro">
+              R$ 0,00
+            </div>
+          </div>
+          <div class="card">
+            <h3>Saldo do período</h3>
+            <div class="numero valor-monetario" id="saldoFinanceiro">
+              R$ 0,00
+            </div>
+          </div>
+        </div>
+        <section aria-labelledby="tituloNovoLancamento" class="card secao">
+          <h3 id="tituloNovoLancamento">Novo lançamento</h3>
+          <form class="form-grid" id="formFinanceiro" onsubmit="cadastrarLancamento(event)">
+            <div class="grupo">
+              <label for="finData">Data</label>
+              <input class="campo" id="finData" required type="date">
+            </div>
+            <div class="grupo">
+              <label for="finTipo">Tipo</label>
+              <select class="campo" id="finTipo" onchange="atualizarCategoriasFinanceiro()" required>
+                <option value="Receita">Receita</option>
+                <option value="Despesa">Despesa</option>
+              </select>
+            </div>
+            <div class="grupo">
+              <label for="finCategoria">Categoria</label>
+              <select class="campo" id="finCategoria" required>
+                <option value="Recebimentos gerais">Recebimentos gerais</option>
+                <option value="Serviços prestados">Serviços prestados</option>
+                <option value="Outras receitas">Outras receitas</option>
+              </select>
+            </div>
+            <div class="grupo">
+              <label for="finValor">Valor (R$)</label>
+              <input class="campo" id="finValor" min="0.01" placeholder="0,00" required step="0.01" type="number">
+            </div>
+            <div class="grupo coluna-inteira">
+              <label for="finDescricao">Descrição</label>
+              <input class="campo" id="finDescricao" maxlength="100" placeholder="Descrição do lançamento" required>
+            </div>
+            <div class="coluna-inteira">
+              <button class="botao botao-azul" type="submit">Salvar lançamento</button>
+            </div>
+          </form>
+          <p class="mensagem-inline" id="resultadoFinanceiro" role="status">
+          </p>
+        </section>
+        <section aria-labelledby="finMovTitle" class="secao">
+          <div class="cabecalho-secao">
+            <h3 id="finMovTitle">Movimentações financeiras</h3>
+            <div class="filtros-inline">
+              <div class="grupo">
+                <label for="finInicio">De</label>
+                <input class="campo" id="finInicio" onchange="carregarFinanceiro()" type="date">
+              </div>
+              <div class="grupo">
+                <label for="finFim">Até</label>
+                <input class="campo" id="finFim" onchange="carregarFinanceiro()" type="date">
+              </div>
+            </div>
+          </div>
+          <div class="tabela-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Data</th>
+                  <th>Tipo</th>
+                  <th>Categoria</th>
+                  <th>Descrição</th>
+                  <th>Valor</th>
+                </tr>
+              </thead>
+              <tbody id="corpoFinanceiro">
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

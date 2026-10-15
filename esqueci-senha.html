@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Recuperar senha | VidaPlus Hospital</title>
+    <link href="css/style.css" rel="stylesheet">
+    <script defer src="js/main.js"></script>
+    <script defer src="js/usuarios.js"></script>
+  </head>
+  <body class="login-body">
+    <main class="login-card">
+      <img alt="Logo VidaPlus Hospital" class="logo" src="imagens/logo-vidaplus.png">
+      <h1>Recuperar senha</h1>
+      <form id="formRecuperacao" onsubmit="event.preventDefault(); alterarSenhaEsquecida()">
+        <div class="grupo">
+          <label for="tipoRecuperacao">Tipo de conta</label>
+          <select class="campo" id="tipoRecuperacao">
+            <option value="Paciente">Paciente</option>
+            <option value="Profissional">Profissional de Saúde</option>
+            <option value="Administrador">Administrador</option>
+          </select>
+        </div>
+        <div class="grupo">
+          <label for="emailRecuperacao">E-mail cadastrado</label>
+          <input class="campo" id="emailRecuperacao" placeholder="Digite o e-mail da sua conta" type="email">
+        </div>
+        <div class="grupo">
+          <label for="novaSenha">Nova senha</label>
+          <div class="campo-senha">
+            <input autocomplete="new-password" class="campo" id="novaSenha" placeholder="Digite a nova senha" type="password">
+            <button aria-label="Mostrar senha" class="botao-senha" onclick="alternarVisibilidadeSenha('novaSenha', this)" title="Mostrar senha" type="button">
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z">
+                </path>
+                <circle cx="12" cy="12" r="3">
+                </circle>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="grupo">
+          <label for="confirmarNovaSenha">Confirmar nova senha</label>
+          <div class="campo-senha">
+            <input autocomplete="new-password" class="campo" id="confirmarNovaSenha" placeholder="Digite a nova senha novamente" type="password">
+            <button aria-label="Mostrar senha" class="botao-senha" onclick="alternarVisibilidadeSenha('confirmarNovaSenha', this)" title="Mostrar senha" type="button">
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z">
+                </path>
+                <circle cx="12" cy="12" r="3">
+                </circle>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="acoes">
+          <button class="botao botao-azul" type="submit">Salvar nova senha</button>
+          <a class="botao botao-branco" href="index.html">Voltar ao login</a>
+        </div>
+      </form>
+    </main>
+  </body>
+</html>

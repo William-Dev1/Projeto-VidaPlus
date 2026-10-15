@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Privacidade | VidaPlus Hospital</title>
+    <link href="../css/style.css" rel="stylesheet">
+    <script defer src="../js/main.js"></script>
+    <script defer src="../js/usuarios.js"></script>
+    <script defer src="../js/paciente.js"></script>
+    <script defer src="../js/privacidade.js"></script>
+  </head>
+  <body data-perfil="Paciente">
+    <a class="pular-conteudo" href="#conteudo-principal">Pular para o conteúdo</a>
+    <div class="sistema">
+      <nav aria-label="Menu principal" class="menu">
+        <div class="menu-logo">
+          <img alt="Logo VidaPlus Hospital" src="../imagens/logo-vidaplus.png">
+          <div>
+            <strong>VidaPlus Hospital</strong>
+            <small>Paciente</small>
+          </div>
+        </div>
+        <a href="paciente-dashboard.html">Início</a>
+        <a href="paciente-perfil.html">Meu perfil</a>
+        <a href="paciente-historico.html">Histórico clínico</a>
+        <a href="paciente-agendar.html">Agendar consulta</a>
+        <a href="paciente-consultas.html">Minhas consultas</a>
+        <a href="paciente-teleconsulta.html">Teleconsulta</a>
+        <a href="paciente-notificacoes.html">Notificações</a>
+        <a href="#" onclick="sairDoSistema(); return false;">Sair</a>
+      </nav>
+      <main class="conteudo" id="conteudo-principal">
+        <div class="topo">
+          <div>
+            <h2>Privacidade</h2>
+          </div>
+          <div class="usuario-topo">
+            <small>Usuário logado</small>
+            <br>
+            <strong class="nome-usuario-logado">Usuário</strong>
+            <br>
+            <small class="detalhe-usuario-logado">
+            </small>
+          </div>
+        </div>
+        <section aria-labelledby="tituloPreferencias" class="card">
+          <h3 id="tituloPreferencias">Preferências de privacidade</h3>
+          <label class="linha-checkbox">
+            <input id="lgpdComunicacoes" type="checkbox">
+            Aceito receber comunicações não essenciais da VidaPlus.
+          </label>
+          <div class="acoes">
+            <button class="botao botao-azul" onclick="salvarPreferenciasLgpd()" type="button">Salvar preferência</button>
+          </div>
+          <p class="mensagem-inline" id="statusPreferenciaLgpd" role="status">
+          </p>
+        </section>
+        <section aria-labelledby="tituloSolicitacaoLgpd" class="card secao">
+          <h3 id="tituloSolicitacaoLgpd">Meus direitos sobre os dados</h3>
+          <form id="formSolicitacaoLgpd" onsubmit="solicitarDireitoLgpd(event)">
+            <div class="grupo">
+              <label for="tipoDireitoLgpd">Tipo de solicitação</label>
+              <select class="campo" id="tipoDireitoLgpd" required>
+                <option value="Acesso aos dados">Acesso aos dados</option>
+                <option value="Correção de dados">Correção de dados</option>
+                <option value="Exclusão de dados">Exclusão de dados</option>
+                <option value="Revogação de consentimento">Revogação de consentimento</option>
+              </select>
+            </div>
+            <div class="grupo">
+              <label for="detalheDireitoLgpd">Detalhes</label>
+              <textarea class="campo" id="detalheDireitoLgpd" maxlength="500" placeholder="Descreva sua solicitação (opcional)"></textarea>
+            </div>
+            <button class="botao botao-azul" type="submit">Enviar solicitação</button>
+          </form>
+          <p class="mensagem-inline" id="statusSolicitacaoLgpd" role="status">
+          </p>
+        </section>
+        <section class="secao">
+          <h3>Minhas solicitações</h3>
+          <div class="tabela-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Data</th>
+                  <th>Solicitação</th>
+                  <th>Status</th>
+                  <th>Resposta</th>
+                </tr>
+              </thead>
+              <tbody id="corpoMinhasSolicitacoesLgpd">
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

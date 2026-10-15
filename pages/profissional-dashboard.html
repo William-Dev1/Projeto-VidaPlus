@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Início | VidaPlus Hospital</title>
+    <link href="../css/style.css" rel="stylesheet">
+    <script defer src="../js/main.js"></script>
+    <script defer src="../js/usuarios.js"></script>
+    <script defer src="../js/profissional.js"></script>
+  </head>
+  <body data-perfil="Profissional">
+    <a class="pular-conteudo" href="#conteudo-principal">Pular para o conteúdo</a>
+    <div class="sistema">
+      <nav aria-label="Menu principal" class="menu">
+        <div class="menu-logo">
+          <img alt="Logo VidaPlus Hospital" src="../imagens/logo-vidaplus.png">
+          <div>
+            <strong>VidaPlus Hospital</strong>
+            <small>Profissional</small>
+          </div>
+        </div>
+        <a class="ativo" href="profissional-dashboard.html">Início</a>
+        <a href="profissional-agenda.html">Agenda</a>
+        <a href="profissional-pacientes.html">Pacientes</a>
+        <a href="profissional-prontuario.html">Prontuário</a>
+        <a href="profissional-receita.html">Receita</a>
+        <a href="profissional-teleconsulta.html">Teleconsulta</a>
+        <a href="#" onclick="sairDoSistema()">Sair</a>
+      </nav>
+      <main class="conteudo" id="conteudo-principal">
+        <div class="topo">
+          <div>
+            <h2>Início</h2>
+          </div>
+          <div class="usuario-topo">
+            <small>Usuário logado</small>
+            <br>
+            <strong class="nome-usuario-logado">Usuário</strong>
+            <br>
+            <small class="detalhe-usuario-logado">
+            </small>
+          </div>
+        </div>
+        <div class="grid-3">
+          <div class="card amarelo">
+            <h3>Pendentes</h3>
+            <div class="numero" id="totalPendentesProfissional">
+              0
+            </div>
+            <p>Aguardando sua decisão.</p>
+          </div>
+          <div class="card verde">
+            <h3>Confirmadas</h3>
+            <div class="numero" id="totalConfirmadasProfissional">
+              0
+            </div>
+            <p>Consultas aceitas.</p>
+          </div>
+          <div class="card">
+            <h3>Concluídas</h3>
+            <div class="numero" id="totalConcluidasProfissional">
+              0
+            </div>
+            <p>Atendimentos finalizados.</p>
+          </div>
+        </div>
+        <div class="secao">
+          <h3>Próximas solicitações</h3>
+          <div class="tabela-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Data</th>
+                  <th>Paciente</th>
+                  <th>Tipo</th>
+                  <th>Status</th>
+                  <th>Ação</th>
+                </tr>
+              </thead>
+              <tbody id="resumoAgendaProfissional">
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

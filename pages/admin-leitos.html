@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Internações e leitos | VidaPlus Hospital</title>
+    <link href="../css/style.css" rel="stylesheet">
+    <script defer src="../js/main.js"></script>
+    <script defer src="../js/usuarios.js"></script>
+    <script defer src="../js/admin.js"></script>
+    <script defer src="../js/hospital.js"></script>
+  </head>
+  <body data-perfil="Administrador">
+    <a class="pular-conteudo" href="#conteudo-principal">Pular para o conteúdo</a>
+    <div class="sistema">
+      <nav aria-label="Menu principal" class="menu">
+        <div class="menu-logo">
+          <img alt="Logo VidaPlus Hospital" src="../imagens/logo-vidaplus.png">
+          <div>
+            <strong>VidaPlus Hospital</strong>
+            <small>Administrador</small>
+          </div>
+        </div>
+        <a href="admin-dashboard.html">Início</a>
+        <a href="admin-cadastros.html">Cadastros</a>
+        <a class="ativo" href="admin-leitos.html">Internações e leitos</a>
+        <a href="admin-suprimentos.html">Suprimentos</a>
+        <a href="admin-financeiro.html">Financeiro</a>
+        <a href="admin-relatorios.html">Relatórios</a>
+        <a href="admin-auditoria.html">Auditoria</a>
+        <a href="#" onclick="sairDoSistema(); return false;">Sair</a>
+      </nav>
+      <main class="conteudo" id="conteudo-principal">
+        <div class="topo">
+          <div>
+            <h2>Internações e leitos</h2>
+          </div>
+          <div class="usuario-topo">
+            <small>Usuário logado</small>
+            <br>
+            <strong class="nome-usuario-logado">Usuário</strong>
+            <br>
+            <small class="detalhe-usuario-logado">
+            </small>
+          </div>
+        </div>
+        <div class="grid-3 resumo-operacional">
+          <div class="card verde">
+            <h3>Leitos disponíveis</h3>
+            <div class="numero" id="leitosDisponiveis">
+              0
+            </div>
+          </div>
+          <div class="card amarelo">
+            <h3>Leitos ocupados</h3>
+            <div class="numero" id="leitosOcupados">
+              0
+            </div>
+          </div>
+          <div class="card">
+            <h3>Ocupação</h3>
+            <div class="numero" id="taxaOcupacao">
+              0%
+            </div>
+          </div>
+        </div>
+        <section class="card secao">
+          <h3>Registrar internação</h3>
+          <form class="form-grid" id="formInternacao" onsubmit="registrarInternacao(event)">
+            <div class="grupo">
+              <label for="internarPaciente">Paciente</label>
+              <select class="campo" id="internarPaciente" required>
+              </select>
+            </div>
+            <div class="grupo">
+              <label for="internarLeito">Leito disponível</label>
+              <select class="campo" id="internarLeito" required>
+              </select>
+            </div>
+            <div class="coluna-inteira">
+              <button class="botao botao-azul" type="submit">Confirmar internação</button>
+            </div>
+          </form>
+          <p class="mensagem-inline" id="resultadoInternacao" role="status">
+          </p>
+        </section>
+        <section class="secao">
+          <h3>Mapa de leitos</h3>
+          <div class="leitos" id="listaLeitos">
+          </div>
+        </section>
+        <section class="secao">
+          <h3>Registro de internações</h3>
+          <div class="tabela-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Paciente</th>
+                  <th>Leito</th>
+                  <th>Entrada</th>
+                  <th>Saída</th>
+                  <th>Status</th>
+                  <th>Ações</th>
+                </tr>
+              </thead>
+              <tbody id="corpoInternacoes">
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

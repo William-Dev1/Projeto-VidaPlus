@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>VidaPlus Hospital</title>
+    <link href="css/style.css" rel="stylesheet">
+    <script defer src="js/main.js"></script>
+    <script defer src="js/usuarios.js"></script>
+  </head>
+  <body class="login-body">
+    <main class="login-card">
+      <img alt="Logo VidaPlus Hospital" class="logo" src="imagens/logo-vidaplus.png">
+      <h1>VidaPlus Hospital</h1>
+      <p>Plataforma de gestão hospitalar com foco em experiência digital, organização clínica e visual profissional.</p>
+      <form id="formLogin" onsubmit="event.preventDefault(); fazerLogin()">
+        <div class="grupo">
+          <label for="tipoLogin">Tipo de acesso</label>
+          <select class="campo" id="tipoLogin" onchange="preencherEmailAdministrador()">
+            <option value="Paciente">Paciente</option>
+            <option value="Profissional">Profissional de Saúde</option>
+            <option selected value="Administrador">Administrador</option>
+          </select>
+        </div>
+        <div class="grupo">
+          <label for="emailLogin">E-mail</label>
+          <input autocomplete="username" class="campo" id="emailLogin" placeholder="Digite seu e-mail" required type="email">
+        </div>
+        <div class="grupo">
+          <label for="senhaLogin">Senha</label>
+          <div class="campo-senha">
+            <input autocomplete="current-password" class="campo" id="senhaLogin" placeholder="Digite sua senha" required type="password">
+            <button aria-label="Mostrar senha" class="botao-senha" onclick="alternarVisibilidadeSenha('senhaLogin', this)" title="Mostrar senha" type="button">
+              <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z">
+                </path>
+                <circle cx="12" cy="12" r="3">
+                </circle>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="acoes">
+          <button class="botao botao-azul" type="submit">Entrar</button>
+          <a class="botao botao-branco" href="criar-conta.html">Criar conta</a>
+        </div>
+      </form>
+      <div class="link-recuperacao">
+        <a href="esqueci-senha.html">Esqueci minha senha</a>
+      </div>
+    </main>
+  </body>
+</html>

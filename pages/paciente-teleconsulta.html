@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Teleconsulta | VidaPlus Hospital</title>
+    <link href="../css/style.css" rel="stylesheet">
+    <script defer src="../js/main.js"></script>
+    <script defer src="../js/usuarios.js"></script>
+    <script defer src="../js/paciente.js"></script>
+  </head>
+  <body data-perfil="Paciente">
+    <a class="pular-conteudo" href="#conteudo-principal">Pular para o conteúdo</a>
+    <div class="sistema">
+      <nav aria-label="Menu principal" class="menu">
+        <div class="menu-logo">
+          <img alt="Logo VidaPlus Hospital" src="../imagens/logo-vidaplus.png">
+          <div>
+            <strong>VidaPlus Hospital</strong>
+            <small>Paciente</small>
+          </div>
+        </div>
+        <a href="paciente-dashboard.html">Início</a>
+        <a href="paciente-perfil.html">Meu perfil</a>
+        <a href="paciente-historico.html">Histórico clínico</a>
+        <a href="paciente-agendar.html">Agendar consulta</a>
+        <a href="paciente-consultas.html">Minhas consultas</a>
+        <a class="ativo" href="paciente-teleconsulta.html">Teleconsulta</a>
+        <a href="paciente-notificacoes.html">Notificações</a>
+        <a href="#" onclick="sairDoSistema(); return false;">Sair</a>
+      </nav>
+      <main class="conteudo" id="conteudo-principal">
+        <div class="topo">
+          <div>
+            <h2>Teleconsulta</h2>
+          </div>
+          <div class="usuario-topo">
+            <small>Usuário logado</small>
+            <br>
+            <strong class="nome-usuario-logado">Usuário</strong>
+            <br>
+            <small class="detalhe-usuario-logado">
+            </small>
+          </div>
+        </div>
+        <div class="grid-2">
+          <div>
+            <div class="video-area" id="areaVideoPaciente">
+              <div>
+                <h2>Área de vídeo</h2>
+                <p>Simulação de videochamada.</p>
+              </div>
+            </div>
+            <div class="acoes" id="controlesTeleconsultaPaciente">
+              <button class="botao botao-branco" onclick="mostrarMensagem('Microfone ativado/desativado.')">Microfone</button>
+              <button class="botao botao-branco" onclick="mostrarMensagem('Câmera ativada/desativada.')">Câmera</button>
+              <button class="botao botao-vermelho" onclick="encerrarTeleconsultaPaciente()">Sair</button>
+            </div>
+          </div>
+          <div class="card">
+            <div id="dadosTeleconsultaPaciente">
+            </div>
+            <div class="secao" id="chatPaciente">
+            </div>
+            <div class="grupo">
+              <label for="mensagemPaciente">Mensagem</label>
+              <input class="campo" id="mensagemPaciente">
+            </div>
+            <button class="botao botao-azul" onclick="enviarMensagemPaciente()">Enviar</button>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

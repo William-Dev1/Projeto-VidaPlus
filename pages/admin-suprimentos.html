@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Suprimentos | VidaPlus Hospital</title>
+    <link href="../css/style.css" rel="stylesheet">
+    <script defer src="../js/main.js"></script>
+    <script defer src="../js/usuarios.js"></script>
+    <script defer src="../js/admin.js"></script>
+    <script defer src="../js/hospital.js"></script>
+  </head>
+  <body data-perfil="Administrador">
+    <a class="pular-conteudo" href="#conteudo-principal">Pular para o conteúdo</a>
+    <div class="sistema">
+      <nav aria-label="Menu principal" class="menu">
+        <div class="menu-logo">
+          <img alt="Logo VidaPlus Hospital" src="../imagens/logo-vidaplus.png">
+          <div>
+            <strong>VidaPlus Hospital</strong>
+            <small>Administrador</small>
+          </div>
+        </div>
+        <a href="admin-dashboard.html">Início</a>
+        <a href="admin-cadastros.html">Cadastros</a>
+        <a href="admin-leitos.html">Internações e leitos</a>
+        <a class="ativo" href="admin-suprimentos.html">Suprimentos</a>
+        <a href="admin-financeiro.html">Financeiro</a>
+        <a href="admin-relatorios.html">Relatórios</a>
+        <a href="admin-auditoria.html">Auditoria</a>
+        <a href="#" onclick="sairDoSistema(); return false;">Sair</a>
+      </nav>
+      <main class="conteudo" id="conteudo-principal">
+        <div class="topo">
+          <div>
+            <h2>Suprimentos</h2>
+          </div>
+          <div class="usuario-topo">
+            <small>Usuário logado</small>
+            <br>
+            <strong class="nome-usuario-logado">Usuário</strong>
+            <br>
+            <small class="detalhe-usuario-logado">
+            </small>
+          </div>
+        </div>
+        <div class="grid-3 resumo-operacional">
+          <div class="card">
+            <h3>Itens cadastrados</h3>
+            <div class="numero" id="totalItensEstoque">
+              0
+            </div>
+          </div>
+          <div class="card amarelo">
+            <h3>Estoque baixo</h3>
+            <div class="numero" id="totalBaixoEstoque">
+              0
+            </div>
+          </div>
+          <div class="card verde">
+            <h3>Quantidade total em estoque</h3>
+            <div class="numero" id="totalUnidadesEstoque">
+              0
+            </div>
+          </div>
+        </div>
+        <div class="grid-2 secao">
+          <section aria-labelledby="tituloCadastroInsumo" class="card">
+            <h3 id="tituloCadastroInsumo">Cadastrar suprimento</h3>
+            <form id="formSuprimento" onsubmit="cadastrarSuprimento(event)">
+              <div class="grupo">
+                <label for="supNome">Nome do item</label>
+                <input class="campo" id="supNome" maxlength="80" required>
+              </div>
+              <div class="form-grid">
+                <div class="grupo">
+                  <label for="supCategoria">Categoria</label>
+                  <select class="campo" id="supCategoria">
+                    <option value="Materiais">Materiais</option>
+                    <option value="Medicamentos">Medicamentos</option>
+                    <option value="Higiene">Higiene</option>
+                    <option value="Equipamentos">Equipamentos</option>
+                  </select>
+                </div>
+                <div class="grupo">
+                  <label for="supUnidade">Unidade</label>
+                  <select class="campo" id="supUnidade">
+                    <option value="Unidade">Unidade</option>
+                    <option value="Caixa">Caixa</option>
+                    <option value="Pacote">Pacote</option>
+                    <option value="Frasco">Frasco</option>
+                  </select>
+                </div>
+                <div class="grupo">
+                  <label for="supQuantidade">Quantidade inicial</label>
+                  <input class="campo" id="supQuantidade" min="0" required step="1" type="number">
+                </div>
+                <div class="grupo">
+                  <label for="supMinimo">Estoque mínimo</label>
+                  <input class="campo" id="supMinimo" min="0" required step="1" type="number">
+                </div>
+              </div>
+              <button class="botao botao-azul" type="submit">Cadastrar item</button>
+            </form>
+          </section>
+          <section aria-labelledby="tituloMovimentoInsumo" class="card">
+            <h3 id="tituloMovimentoInsumo">Movimentar estoque</h3>
+            <form id="formMovimento" onsubmit="movimentarSuprimento(event)">
+              <div class="grupo">
+                <label for="movItem">Item</label>
+                <select class="campo" id="movItem" required>
+                </select>
+              </div>
+              <div class="grupo">
+                <label for="movTipo">Movimentação</label>
+                <select class="campo" id="movTipo">
+                  <option value="Entrada">Entrada</option>
+                  <option value="Saída">Saída</option>
+                </select>
+              </div>
+              <div class="grupo">
+                <label for="movQuantidade">Quantidade</label>
+                <input class="campo" id="movQuantidade" min="1" required step="1" type="number">
+              </div>
+              <button class="botao botao-azul" type="submit">Registrar movimentação</button>
+            </form>
+            <p class="mensagem-inline" id="resultadoSuprimento" role="status">
+            </p>
+          </section>
+        </div>
+        <section aria-labelledby="tituloEstoque" class="secao">
+          <div class="cabecalho-secao">
+            <h3 id="tituloEstoque">Controle de suprimentos</h3>
+            <div class="grupo">
+              <label for="supBusca">Buscar item</label>
+              <input class="campo" id="supBusca" oninput="carregarSuprimentos()" placeholder="Nome ou categoria">
+            </div>
+          </div>
+          <div class="tabela-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Item</th>
+                  <th>Categoria</th>
+                  <th>Quantidade</th>
+                  <th>Mínimo</th>
+                  <th>Situação</th>
+                </tr>
+              </thead>
+              <tbody id="corpoSuprimentos">
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

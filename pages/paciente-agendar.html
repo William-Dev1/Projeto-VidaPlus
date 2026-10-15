@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Agendar consulta | VidaPlus Hospital</title>
+    <link href="../css/style.css" rel="stylesheet">
+    <script defer src="../js/main.js"></script>
+    <script defer src="../js/usuarios.js"></script>
+    <script defer src="../js/paciente.js"></script>
+  </head>
+  <body data-perfil="Paciente">
+    <a class="pular-conteudo" href="#conteudo-principal">Pular para o conteúdo</a>
+    <div class="sistema">
+      <nav aria-label="Menu principal" class="menu">
+        <div class="menu-logo">
+          <img alt="Logo VidaPlus Hospital" src="../imagens/logo-vidaplus.png">
+          <div>
+            <strong>VidaPlus Hospital</strong>
+            <small>Paciente</small>
+          </div>
+        </div>
+        <a href="paciente-dashboard.html">Início</a>
+        <a href="paciente-perfil.html">Meu perfil</a>
+        <a href="paciente-historico.html">Histórico clínico</a>
+        <a class="ativo" href="paciente-agendar.html">Agendar consulta</a>
+        <a href="paciente-consultas.html">Minhas consultas</a>
+        <a href="paciente-teleconsulta.html">Teleconsulta</a>
+        <a href="paciente-notificacoes.html">Notificações</a>
+        <a href="#" onclick="sairDoSistema(); return false;">Sair</a>
+      </nav>
+      <main class="conteudo" id="conteudo-principal">
+        <div class="topo">
+          <div>
+            <h2>Agendar consulta</h2>
+          </div>
+          <div class="usuario-topo">
+            <small>Usuário logado</small>
+            <br>
+            <strong class="nome-usuario-logado">Usuário</strong>
+            <br>
+            <small class="detalhe-usuario-logado">
+            </small>
+          </div>
+        </div>
+        <div class="card">
+          <div class="form-grid">
+            <div class="grupo">
+              <label for="especialidade">Especialidade</label>
+              <select class="campo" id="especialidade" onchange="carregarProfissionaisDaEspecialidade()">
+              </select>
+            </div>
+            <div class="grupo">
+              <label for="profissional">Profissional</label>
+              <select class="campo" id="profissional" onchange="carregarDatasDisponiveis()">
+              </select>
+            </div>
+            <div class="grupo">
+              <label for="unidade">Unidade</label>
+              <select class="campo" id="unidade">
+                <option>VidaPlus Centro</option>
+                <option>VidaPlus Norte</option>
+                <option>VidaPlus Sul</option>
+              </select>
+            </div>
+            <div class="grupo">
+              <label for="tipo">Tipo de atendimento</label>
+              <select class="campo" id="tipo">
+                <option>Presencial</option>
+                <option>Teleconsulta</option>
+              </select>
+            </div>
+            <div class="grupo">
+              <label for="data">Data disponível</label>
+              <select class="campo" disabled id="data" onchange="carregarHorariosDisponiveis()" required>
+                <option value="">Selecione um médico</option>
+              </select>
+            </div>
+            <div class="grupo">
+              <label for="horario">Horário disponível</label>
+              <select class="campo" disabled id="horario" required>
+                <option value="">Escolha primeiro uma data</option>
+              </select>
+            </div>
+            <div class="grupo coluna-inteira">
+              <label for="observacoes">Observações</label>
+              <textarea class="campo" id="observacoes" placeholder="Descreva brevemente o motivo da consulta, se desejar."></textarea>
+            </div>
+          </div>
+          <div class="acoes">
+            <button class="botao botao-azul" onclick="agendarConsulta()">Enviar solicitação</button>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Agenda | VidaPlus Hospital</title>
+    <link href="../css/style.css" rel="stylesheet">
+    <script defer src="../js/main.js"></script>
+    <script defer src="../js/usuarios.js"></script>
+    <script defer src="../js/profissional.js"></script>
+  </head>
+  <body data-perfil="Profissional">
+    <a class="pular-conteudo" href="#conteudo-principal">Pular para o conteúdo</a>
+    <div class="sistema">
+      <nav aria-label="Menu principal" class="menu">
+        <div class="menu-logo">
+          <img alt="Logo VidaPlus Hospital" src="../imagens/logo-vidaplus.png">
+          <div>
+            <strong>VidaPlus Hospital</strong>
+            <small>Profissional</small>
+          </div>
+        </div>
+        <a href="profissional-dashboard.html">Início</a>
+        <a class="ativo" href="profissional-agenda.html">Agenda</a>
+        <a href="profissional-pacientes.html">Pacientes</a>
+        <a href="profissional-prontuario.html">Prontuário</a>
+        <a href="profissional-receita.html">Receita</a>
+        <a href="profissional-teleconsulta.html">Teleconsulta</a>
+        <a href="#" onclick="sairDoSistema()">Sair</a>
+      </nav>
+      <main class="conteudo" id="conteudo-principal">
+        <div class="topo">
+          <div>
+            <h2>Agenda</h2>
+          </div>
+          <div class="usuario-topo">
+            <small>Usuário logado</small>
+            <br>
+            <strong class="nome-usuario-logado">Usuário</strong>
+            <br>
+            <small class="detalhe-usuario-logado">
+            </small>
+          </div>
+        </div>
+        <section aria-labelledby="tituloDisponibilidade" class="card secao">
+          <div class="cabecalho-disponibilidade">
+            <div>
+              <h3 id="tituloDisponibilidade">Minha disponibilidade para consultas</h3>
+            </div>
+            <span class="status status-azul">Agenda do profissional</span>
+          </div>
+          <form id="formDisponibilidade" onsubmit="event.preventDefault(); publicarDisponibilidade()">
+            <div class="form-grid form-agenda">
+              <div class="grupo">
+                <label for="dataDisponibilidade">Data inicial</label>
+                <input class="campo" id="dataDisponibilidade" required type="date">
+              </div>
+              <div class="grupo">
+                <label for="dataFimDisponibilidade">Data final</label>
+                <input class="campo" id="dataFimDisponibilidade" required type="date">
+              </div>
+              <div class="grupo">
+                <label for="inicioDisponibilidade">Horário inicial</label>
+                <input class="campo" id="inicioDisponibilidade" required type="time" value="09:00">
+              </div>
+              <div class="grupo">
+                <label for="fimDisponibilidade">Horário final</label>
+                <input class="campo" id="fimDisponibilidade" required type="time" value="12:00">
+              </div>
+              <div class="grupo">
+                <label for="intervaloDisponibilidade">Duração da consulta</label>
+                <select class="campo" id="intervaloDisponibilidade">
+                  <option value="30">30 minutos</option>
+                  <option value="60">60 minutos</option>
+                </select>
+              </div>
+            </div>
+            <div class="acoes">
+              <button class="botao botao-azul" type="submit">Publicar horários para pacientes</button>
+            </div>
+          </form>
+          <div class="secao-disponibilidades">
+            <h4>Datas e horários publicados</h4>
+            <div aria-live="polite" id="listaDisponibilidadesProfissional">
+            </div>
+          </div>
+        </section>
+        <h3 class="titulo-lista-agenda">Solicitações de consultas</h3>
+        <div class="tabela-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Data</th>
+                <th>Horário</th>
+                <th>Paciente</th>
+                <th>Tipo</th>
+                <th>Unidade</th>
+                <th>Observações</th>
+                <th>Status</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody id="corpoAgendaProfissional">
+            </tbody>
+          </table>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Minhas consultas | VidaPlus Hospital</title>
+    <link href="../css/style.css" rel="stylesheet">
+    <script defer src="../js/main.js"></script>
+    <script defer src="../js/usuarios.js"></script>
+    <script defer src="../js/paciente.js"></script>
+  </head>
+  <body data-perfil="Paciente">
+    <a class="pular-conteudo" href="#conteudo-principal">Pular para o conteúdo</a>
+    <div class="sistema">
+      <nav aria-label="Menu principal" class="menu">
+        <div class="menu-logo">
+          <img alt="Logo VidaPlus Hospital" src="../imagens/logo-vidaplus.png">
+          <div>
+            <strong>VidaPlus Hospital</strong>
+            <small>Paciente</small>
+          </div>
+        </div>
+        <a href="paciente-dashboard.html">Início</a>
+        <a href="paciente-perfil.html">Meu perfil</a>
+        <a href="paciente-historico.html">Histórico clínico</a>
+        <a href="paciente-agendar.html">Agendar consulta</a>
+        <a class="ativo" href="paciente-consultas.html">Minhas consultas</a>
+        <a href="paciente-teleconsulta.html">Teleconsulta</a>
+        <a href="paciente-notificacoes.html">Notificações</a>
+        <a href="#" onclick="sairDoSistema(); return false;">Sair</a>
+      </nav>
+      <main class="conteudo" id="conteudo-principal">
+        <div class="topo">
+          <div>
+            <h2>Minhas consultas</h2>
+          </div>
+          <div class="usuario-topo">
+            <small>Usuário logado</small>
+            <br>
+            <strong class="nome-usuario-logado">Usuário</strong>
+            <br>
+            <small class="detalhe-usuario-logado">
+            </small>
+          </div>
+        </div>
+        <div class="tabela-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Data</th>
+                <th>Horário</th>
+                <th>Profissional</th>
+                <th>Especialidade</th>
+                <th>Tipo</th>
+                <th>Unidade</th>
+                <th>Status</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody id="corpoConsultasPaciente">
+            </tbody>
+          </table>
+        </div>
+        <div class="acoes">
+          <a class="botao botao-azul" href="paciente-agendar.html">Nova solicitação</a>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

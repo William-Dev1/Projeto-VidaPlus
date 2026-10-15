@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Dashboard administrativo | VidaPlus Hospital</title>
+    <link href="../css/style.css" rel="stylesheet">
+    <script defer src="../js/main.js"></script>
+    <script defer src="../js/usuarios.js"></script>
+    <script defer src="../js/admin.js"></script>
+  </head>
+  <body data-perfil="Administrador">
+    <a class="pular-conteudo" href="#conteudo-principal">Pular para o conteúdo</a>
+    <div class="sistema">
+      <nav aria-label="Menu principal" class="menu">
+        <div class="menu-logo">
+          <img alt="Logo VidaPlus Hospital" src="../imagens/logo-vidaplus.png">
+          <div>
+            <strong>VidaPlus Hospital</strong>
+            <small>Administrador</small>
+          </div>
+        </div>
+        <a class="ativo" href="admin-dashboard.html">Início</a>
+        <a href="admin-cadastros.html">Cadastros</a>
+        <a href="admin-leitos.html">Internações e leitos</a>
+        <a href="admin-suprimentos.html">Suprimentos</a>
+        <a href="admin-financeiro.html">Financeiro</a>
+        <a href="admin-relatorios.html">Relatórios</a>
+        <a href="admin-auditoria.html">Auditoria</a>
+        <a href="#" onclick="sairDoSistema(); return false;">Sair</a>
+      </nav>
+      <main class="conteudo" id="conteudo-principal">
+        <div class="topo">
+          <div>
+            <h2>Dashboard administrativo</h2>
+          </div>
+          <div class="usuario-topo">
+            <small>Usuário logado</small>
+            <br>
+            <strong class="nome-usuario-logado">Usuário</strong>
+            <br>
+            <small class="detalhe-usuario-logado">
+            </small>
+          </div>
+        </div>
+        <div class="grid-4">
+          <div class="card azul">
+            <h3>Pacientes ativos</h3>
+            <div class="numero" id="totalPacientes">
+              0
+            </div>
+          </div>
+          <div class="card verde">
+            <h3>Profissionais ativos</h3>
+            <div class="numero" id="totalProfissionais">
+              0
+            </div>
+          </div>
+          <div class="card amarelo">
+            <h3>Consultas pendentes</h3>
+            <div class="numero" id="totalPendentesAdmin">
+              0
+            </div>
+          </div>
+          <div class="card">
+            <h3>Consultas confirmadas</h3>
+            <div class="numero" id="totalConfirmadasAdmin">
+              0
+            </div>
+          </div>
+        </div>
+        <section aria-labelledby="tituloGestaoAdmin" class="secao">
+          <h3 id="tituloGestaoAdmin">Gestão hospitalar</h3>
+          <div class="grid-3">
+            <a class="card atalho-operacional" href="admin-leitos.html">
+              <h3>Internações e leitos</h3>
+              <span>Ver gestão de leitos →</span>
+            </a>
+            <a class="card atalho-operacional" href="admin-suprimentos.html">
+              <h3>Suprimentos</h3>
+              <span>Ver estoque →</span>
+            </a>
+            <a class="card atalho-operacional" href="admin-financeiro.html">
+              <h3>Financeiro</h3>
+              <span>Ver lançamentos →</span>
+            </a>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
